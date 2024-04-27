@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <p>Hola, {{ user.username }}. Bienvenido de nuevo.</p>
+        <p><a href="{% url 'redirect_to_login' %}">Cerrar sesión</a></p>
+    {% else %}
+        <p>Por favor <a href="{% url 'login' %}">inicia sesión</a> para acceder a esta página.</p>
+    {% endif %}
+{% endblock %}
